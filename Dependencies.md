@@ -10,7 +10,7 @@
 ## Dapp
 
 ### Next.js
-`npx create-next-app dapp'
+`npx create-next-app dapp`
 This command will create the directory for the dapp client and then need 
 to install the dependencies for the dapp in that directory:
 `cd dapp` and install the following:
