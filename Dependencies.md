@@ -9,4 +9,6 @@
 
 ## Dapp
 ### Ethers, IPFS, Axios
-npm install ethers ipfs-http-client@50.1.2 axios 
+`npm install ethers ipfs-http-client@50.1.2 axios`
+### Tailwind CCS and Next.js
+`npm install -D tailwindcss@latest postcss@latest autoprefixer@latest`
