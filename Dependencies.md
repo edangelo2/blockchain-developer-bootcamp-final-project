@@ -31,12 +31,11 @@ The following command will work for copying the files from the dapp directory:
 
 ### Running the Dapp
 #### Ensure that the Smart contracts are up-and-running
-`Truffle Develop`
-`Truffle Migrate`
+`truffle develop`
+`truffle migrate`
 #### Setup the config.js with the addresses of the smart contracts 
-config.js file must point to the addresses of the smart contract on the network you want the dapp to work.
-Should it be localhost then you can obtain these addresses from the Truffle migrate console which console.logs the addresses.
-Just copy and paste it in the file.
+`config.js` file must point to the addresses of the smart contract on the network you want the dapp to work.
+Should it be localhost then you can obtain these addresses from console when running `truffle migrate`. Just copy and paste it in the file.
 #### Start the Dapp
 `npm run dev` will do the work
 #### Access the Dapp from the browser
