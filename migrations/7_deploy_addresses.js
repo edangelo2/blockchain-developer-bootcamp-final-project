@@ -7,8 +7,8 @@ const AuditItem = artifacts.require("./AuditItem.sol");
 module.exports = function (deployer) {
   console.log('export const auditAssignments = "'+AuditAssignments.address+'"');
   console.log('export const auditEnrollments = "'+AuditEnrollments.address+'"');
-  console.log('export const auditResult = "'+AuditResult.address+'"');
-  console.log('export const auditItem = "'+AuditItem.address+'"');
-  console.log('export const DAudit = "'+DAudit.address+'"');
+  console.log('export const auditResultAddress = "'+AuditResult.address+'"');
+  console.log('export const auditItemAddress = "'+AuditItem.address+'"');
+  console.log('export const DAuditaddress = "'+DAudit.address+'"');
 };
 
