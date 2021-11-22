@@ -139,7 +139,7 @@ After creating the dapp we need to install additional components for the dapp in
 
 ### Replace pages with the DAudit App
 The Dapp Site contains the pages for the DAudit App, configuration files and contracts.json files.
-These files need to be copied in to the dapp directory. 
+These files need to be copied into the dapp directory. 
 The following command will work for copying the files from the dapp directory:
 `cp -R ../dapp-site/ .`
 
