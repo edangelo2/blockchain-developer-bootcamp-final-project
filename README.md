@@ -89,7 +89,7 @@ DAuditaddress = "0x5344ef29Ac1875A9BbbcD70B21dDeF7403EcacfD"
 auditItemAddress = "0x6345423b2869ed0367D60078930c45E91cb9013D"
 auditResultAddress = "0x98BcDAe1fE42ee106DF1A6aa4221363928a86aE2"
 
-Note: This can be set up in the config.js file for running locally the Dapp against the deplyed contracts if required.
+**Note:** This can be set up in the config.js file for running locally the Dapp against the deplyed contracts if required.
 
 # Dependencies that need to be installed to run the tests
 ## Truffle + Ganache
@@ -102,9 +102,9 @@ Note: This can be set up in the config.js file for running locally the Dapp agai
 
 ## Dapp
 
-The Dapp is a React/Next Dapp. Although the Dapp is hosted in Netifly as required for the project, if you want to install it and run it locally below are the steps to follow.
+The Dapp is a React/Next Web3 application. Although the Dapp is hosted in Netifly as required for the project, if you want to install it and run it locally below are the steps to follow.
 
-Note: I have very basics knowledge working with this technology but I managed to create the Dapp and deploy it.
+**Note:** I have very basics knowledge working with this technology but I managed to create the Dapp and deploy it.
 
 ### Next.js
 `npx create-next-app dapp`
