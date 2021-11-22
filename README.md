@@ -73,11 +73,39 @@ The auditors and producers information is kept hidden through all the process th
 
 # Project Technical Details and Sumbmission requirements
 
-## Ethereum account to receive your certification as an NFT
-0x745E9390F6Fdcc932AB5b41850aB94C87f224974
+## Running the Tests
 
-## Dapp Site URL
-The Dapp is hosted in Netifly in the following URL: https://quirky-leavitt-985d0f.netlify.app
+### Dependencies 
+Bellow are the dependencies that need to be installed before running the tests.
+#### Truffle + Ganache
+##### - Truffle installation
+`sudo npm install -g truffle`
+##### - Ganache installation
+`sudo npm install -g ganache-cli`
+#### Open Zeppeling Contracts
+`npm install @openzeppelin/contracts`
+
+### Steps for running the tests
+
+After git clone the repository cd into the directory you've just cloned it. 
+
+The truffe config file is set with this parameters for the development environment:
+```
+develop: {
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 8545,            // Standard Ethereum port (default: none)
+     network_id: "1337",       // Any network (default: none)
+     }
+```
+
+Run the following commands:
+
+`truffle develop`
+
+`truffle migrate --network develop`
+
+`truffle test`
+
 
 ## Smart Contracts Deployments
 
@@ -91,16 +119,10 @@ auditResultAddress = "0x98BcDAe1fE42ee106DF1A6aa4221363928a86aE2"
 
 **Note:** This can be set up in the config.js file for running locally the Dapp against the deplyed contracts if required.
 
-# Dependencies that need to be installed to run the tests
-## Truffle + Ganache
-### - Truffle installation
-`sudo npm install -g truffle`
-### - Ganache installation
-`sudo npm install -g ganache-cli`
-## Open Zeppeling Contracts
-`npm install @openzeppelin/contracts`
+## Dapp Site URL
+The Dapp is hosted in Netifly in the following URL: https://quirky-leavitt-985d0f.netlify.app
 
-## Dapp
+## Dapp Description and instrucctions to install it and run it locally
 
 The Dapp is a React/Next Web3 application. Although the Dapp is hosted in Netifly as required for the project, if you want to install it and run it locally below are the steps to follow.
 
@@ -134,3 +156,5 @@ Should it be localhost then you can obtain these addresses from console when run
 #### Access the Dapp from the browser
 Access the browser URL and ensure you are in the correct network and port in Metamask.
 
+## Ethereum account to receive your certification as an NFT
+0x745E9390F6Fdcc932AB5b41850aB94C87f224974
