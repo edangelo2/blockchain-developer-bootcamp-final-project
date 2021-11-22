@@ -118,8 +118,6 @@ auditItemAddress = "0x6345423b2869ed0367D60078930c45E91cb9013D"
 auditResultAddress = "0x98BcDAe1fE42ee106DF1A6aa4221363928a86aE2"
 ```
 
-**Note:** This can be set up in the config.js file for running locally the Dapp against the deplyed contracts if required.
-
 ## Dapp Site URL
 The Dapp is hosted in Netifly in the following URL: https://quirky-leavitt-985d0f.netlify.app
 
