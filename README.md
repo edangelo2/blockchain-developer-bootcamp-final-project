@@ -123,9 +123,9 @@ The Dapp is hosted in Netifly in the following URL: https://quirky-leavitt-985d0
 
 ## Dapp Description and instrucctions to install it and run it locally
 
-The Dapp is a React/Next Web3 application. Although the Dapp is hosted in Netifly as required for the project, if you want to install it and run it locally below are the steps to follow.
+The Dapp is a React/Next Web3 application. Although the Dapp is hosted in Netifly as required for the project, if you want to install it and run it locally below are the steps to perform the installation.
 
-**Note:** I have very basics knowledge working with this technology but I managed to create the Dapp and deploy it.
+**Note:** I have very basic knowledge working with this technology but I managed to create the Dapp and deploy it.
 
 ### Next.js
 `npx create-next-app dapp`
