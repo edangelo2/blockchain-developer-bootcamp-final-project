@@ -1,7 +1,7 @@
 # Final Project Functional Description
 ## Decentralized Audits
 
-A distributed system for auditing things that require human interaction and manual processes in the process of auditing.
+A distributed system for auditing things that require human interaction and manual procedures in the process of auditing.
 
 ### Main Entities of the system:
 
@@ -73,38 +73,59 @@ The auditors and producers information is kept hidden through all the process th
 
 # Project Technical Details and Sumbmission requirements
 
-## Ethereum account to receive your certification as an NFT
-0x745E9390F6Fdcc932AB5b41850aB94C87f224974
+## Running the Tests
 
-## Dapp Site URL
-The Dapp is hosted in Netifly in the following URL: https://quirky-leavitt-985d0f.netlify.app
+### Dependencies 
+Bellow are the dependencies that need to be installed before running the tests.
+#### Truffle + Ganache
+##### - Truffle installation
+`sudo npm install -g truffle`
+##### - Ganache installation
+`sudo npm install -g ganache-cli`
+#### Open Zeppeling Contracts
+`npm install @openzeppelin/contracts`
+
+### Steps for running the tests
+
+After git clone the repository cd into the directory you've just cloned it. 
+
+The truffe config file is set with this parameters for the development environment:
+```
+develop: {
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 8545,            // Standard Ethereum port (default: none)
+     network_id: "1337",       // Any network (default: none)
+     }
+```
+
+Run the following commands:
+
+`truffle develop`
+
+`truffle migrate --network develop`
+
+`truffle test`
+
 
 ## Smart Contracts Deployments
 
 The smart contracts are deployed in the Ropsten Network in the following addresses:
-
+```
 auditEnrollments = "0x7364B83Df2FB101b69c2137790411Cb5e011262d"
 auditAssignments = "0xf5426Bf7cbE8F19E8390F68bb4D033d45e012855"
 DAuditaddress = "0x5344ef29Ac1875A9BbbcD70B21dDeF7403EcacfD"
 auditItemAddress = "0x6345423b2869ed0367D60078930c45E91cb9013D"
 auditResultAddress = "0x98BcDAe1fE42ee106DF1A6aa4221363928a86aE2"
+```
 
-Note: This can be set up in the config.js file for running locally the Dapp against the deplyed contracts if required.
+## Dapp Site URL
+The Dapp is hosted in Netifly in the following URL: https://quirky-leavitt-985d0f.netlify.app
 
-# Dependencies that need to be installed to run the tests
-## Truffle + Ganache
-### - Truffle installation
-`sudo npm install -g truffle`
-### - Ganache installation
-`sudo npm install -g ganache-cli`
-## Open Zeppeling Contracts
-`npm install @openzeppelin/contracts`
+## Dapp Description and instrucctions to install it and run it locally
 
-## Dapp
+The Dapp is a React/Next Web3 application. Although the Dapp is hosted in Netifly as required for the project, if you want to install it and run it locally below are the steps to follow.
 
-The Dapp is a React/Next Dapp. Although the Dapp is hosted in Netifly as required for the project, if you want to install it and run it locally below are the steps to follow.
-
-Note: I have very basics knowledge working with this technology but I managed to create the Dapp and deploy it.
+**Note:** I have very basics knowledge working with this technology but I managed to create the Dapp and deploy it.
 
 ### Next.js
 `npx create-next-app dapp`
@@ -118,7 +139,7 @@ After creating the dapp we need to install additional components for the dapp in
 
 ### Replace pages with the DAudit App
 The Dapp Site contains the pages for the DAudit App, configuration files and contracts.json files.
-These files need to be copied in to the dapp directory. 
+These files need to be copied into the dapp directory. 
 The following command will work for copying the files from the dapp directory:
 `cp -R ../dapp-site/ .`
 
@@ -134,3 +155,5 @@ Should it be localhost then you can obtain these addresses from console when run
 #### Access the Dapp from the browser
 Access the browser URL and ensure you are in the correct network and port in Metamask.
 
+## Ethereum account to receive your certification as an NFT
+0x745E9390F6Fdcc932AB5b41850aB94C87f224974
