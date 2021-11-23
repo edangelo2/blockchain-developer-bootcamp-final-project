@@ -83,7 +83,7 @@ The auditors and producers information is kept hidden through all the process th
     ├── deployed_address.txt		# Addresses of the smart contracts deployed in the public network
     ├── design_pattern_decisions.md	# Description of design patterns    
     └── avoiding_common_attacks.md	# Description of security measures  
-
+    
 ## Running the Tests
 
 ### Dependencies 
