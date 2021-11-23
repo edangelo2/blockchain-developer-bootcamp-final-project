@@ -72,13 +72,25 @@ contract("DAudit Results", function (accounts) {
         assert.equal("AuditResultCreated", tx11.logs[0].event);
         assert.equal('2', tx11.logs[0].args.tokenIdResult.toString());
 
+        previousBalance = await web3.eth.getBalance(accounts[0]);
         // Pay auditors with the smart contract owner, should run successfully
         console.log('/* Pay auditors with the smart contract owner */')
         txPay = await dAudit.payAuditors(AItem1 , {
            from: contractOwner,
            value: 0
          });
+
+         
+        currentBalance = await web3.eth.getBalance(accounts[0]);
         
+        console.log('Previous Balance Wei',previousBalance)
+        console.log('Previous Balance Eth',web3.utils.fromWei(previousBalance))
+        console.log('Current Balance Wei', currentBalance)
+        console.log('Current Balance Eth', web3.utils.fromWei(currentBalance))
+
+        
+        // After paying the auditors the balance of the SmartContract must be lower
+        assert.isTrue(previousBalance > currentBalance, "The current balance must be lower than previous balance")
   })
 
 })
