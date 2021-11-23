@@ -73,6 +73,17 @@ The auditors and producers information is kept hidden through all the process th
 
 # Project Technical Details and Sumbmission requirements
 
+## Directory Structure
+    .
+    ├── contracts               	# Smart Contracts source code
+    ├── dapp-site               	# Dapp pages and site configuration files
+    ├── migrations              	# Truffle deployment scripts
+    ├── test                    	# Truffle test scripts
+    ├── README.md			# Final project description (this file)
+    ├── deployed_address.txt		# Addresses of the smart contracts deployed in the public network
+    ├── design_pattern_decisions.md	# Description of design patterns    
+    └── avoiding_common_attacks.md	# Description of security measures  
+
 ## Running the Tests
 
 ### Dependencies 
