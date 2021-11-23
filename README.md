@@ -168,7 +168,7 @@ The following command will work for copying the files from the dapp directory:
 `config.js` file must point to the addresses of the smart contract on the network you want the dapp to work.
 Should it be localhost then you can obtain these addresses from console when running `truffle migrate`. Just copy and paste it in the file.
 #### Start the Dapp
-`npm run dev` will do the work
+`npm run dev` will do the work and start the Dapp locally (usually http://localhost:3000/)
 #### Access the Dapp from the browser
 Access the browser URL and ensure you are in the correct network and port in Metamask.
 
