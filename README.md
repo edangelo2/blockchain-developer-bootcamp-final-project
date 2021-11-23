@@ -142,8 +142,6 @@ Loom link:
 
 The Dapp is a React/Next Web3 application. Although the Dapp is hosted in Netifly as required for the project, if you want to install it and run it locally below are the steps to perform the installation.
 
-**Note:** I have very basic knowledge working with this technology but I managed to create the Dapp and deploy it.
-
 ### Next.js
 `npx create-next-app dapp`
 This command will create the directory for the dapp client, install the react/next dependencies and a basic example.
