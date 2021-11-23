@@ -61,10 +61,17 @@ contract("DAudit Results", function (accounts) {
         console.log('/* Submit Audit Results - Auditor 1 */')
         const tx10 = await dAudit.createAuditResult(auditResult.address, AItem1, idTokenResult1, 0, {from : auditor1Addr});
         
+        assert.isTrue(tx10.logs.length > 0, "Emit at least one event");
+        assert.equal("AuditResultCreated", tx10.logs[0].event);
+        assert.equal('1', tx10.logs[0].args.tokenIdResult.toString());
+
         console.log('/* Submit Audit Results - Auditor 2 */')
         const tx11 = await dAudit.createAuditResult(auditResult.address, AItem1, idTokenResult2, 0, {from : auditor2Addr});
-
         
+        assert.isTrue(tx11.logs.length > 0, "Emit at least one event");
+        assert.equal("AuditResultCreated", tx11.logs[0].event);
+        assert.equal('2', tx11.logs[0].args.tokenIdResult.toString());
+
         // Pay auditors with the smart contract owner, should run successfully
         console.log('/* Pay auditors with the smart contract owner */')
         txPay = await dAudit.payAuditors(AItem1 , {
