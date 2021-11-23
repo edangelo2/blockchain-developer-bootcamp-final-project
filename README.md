@@ -76,7 +76,7 @@ The auditors and producers information is kept hidden through all the process th
 ## Directory Structure
     .
     ├── contracts				# Smart Contracts source code
-    ├── dapp-site				# Dapp pages and site configuration files
+    ├── dapp-site				# Dapp site pages and configuration files
     ├── migrations				# Truffle deployment scripts
     ├── test				# Truffle test scripts
     ├── README.md				# Final project description (this file)
