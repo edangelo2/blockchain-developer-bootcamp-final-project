@@ -98,7 +98,7 @@ Bellow are the dependencies that need to be installed before running the tests.
 
 ### Steps for running the tests
 
-After git clone the repository cd into the directory you've just cloned it. 
+cd into the directory you've just cloned the repo.
 
 The truffe config file is set with this parameters for the development environment:
 ```
@@ -131,6 +131,12 @@ auditResultAddress = "0x98BcDAe1fE42ee106DF1A6aa4221363928a86aE2"
 
 ## Dapp Site URL
 The Dapp is hosted in Netifly in the following URL: https://quirky-leavitt-985d0f.netlify.app
+
+## Screen Cast of the Dapp showing its functionality 
+Loom link:
+
+## Ethereum account to receive the certification as an NFT
+0x745E9390F6Fdcc932AB5b41850aB94C87f224974
 
 ## Dapp Description and instrucctions to install it and run it locally
 
@@ -166,5 +172,3 @@ Should it be localhost then you can obtain these addresses from console when run
 #### Access the Dapp from the browser
 Access the browser URL and ensure you are in the correct network and port in Metamask.
 
-## Ethereum account to receive your certification as an NFT
-0x745E9390F6Fdcc932AB5b41850aB94C87f224974
