@@ -126,52 +126,60 @@ useEffect(() => {
     console.log(AItem.tokenId)
     
 
-    // Create the audit result
-    const transaction = await contract.payAuditors(AItem.tokenId, { value: payFeeStr })
-    await transaction.wait()
-
-    console.log(transaction)
-
+    // Pay the auditors
+    try {    
+      const transaction = await contract.payAuditors(AItem.tokenId, { value: payFeeStr })
+      await transaction.wait()
     // Send the user to the home page
-    router.push('/')
+      router.push('/')
+    }
+    catch  (error)  {
+      if (error.code = -32603) {
+        window.alert('Ownable: caller is not the owner')
+      }
+      else {
+        window.alert('Check Console')
+        console.log(error)
+      }
+    }
+
   }
   
   if (loadingState === 'loaded' && AItem.tokenId === null) 
     return (<h1 className="px-20 py-10 text-3xl">No audits to enroll</h1>)
   return (
-      <div className="flex ">
+      <div className="flex justify-center">
         <div className="p-4 ">
-          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4 pt-4 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
             <div key={AItem.Id} className="border shadow rounded-xl overflow-hidden ">
               <img src={AItem.image} className="rounded" />
               <div className="p-4 bg-black">
+                <p className="text-lg font-bold text-white">Audit ID  : {id} </p>
                 <p className="text-2xl font-bold text-white">{AItem.name}</p>
                 <p className="text-xl font-italic text-white">{AItem.description}</p>
               </div>
               <div className="p-4 bg-green-400">
-                <p className="text-base font-mono font-bold text-white">Audit Fee  : {AItem.auditFee} Eth</p>
+                <p className="text-base font-mono font-bold text-white">Audit Fee  : {AItem.auditFee} eth</p>
                 <p className="text-base font-mono font-bold text-white">Auditors required  : {AItem.auditReqs}</p>
-                <p className="text-base font-mono font-bold text-white">Producer  : {AItem.producer}</p>
-                <p className="text-base font-mono font-bold text-white">Auditors Enrolled  : </p>
+                <button className="w-full bg-blue-500 text-white font-bold py-2 px-0 rounded" onClick={() => payAuditors()}>Pay Auditors</button> 
+                <p className="text-base font-mono font-bold text-white py-2">Producer  : </p>
+                <p className="font-mono font-light text-sm text-white py-2">{AItem.producer}</p>
+                <p className="text-base font-mono font-bold text-white py-2">Auditors Enrolled  : </p>
                   {
-                  EnrollAddr.map((auditorAddr,i)=>{
+                  EnrollAddr.map((auditorAddr)=>{
                   return (
-                    <p key={i} className="text-base font-mono font-bold text-white">{auditorAddr}</p>
+                    <p key={auditorAddr} className="font-mono font-light text-sm text-white">{auditorAddr}</p>
                     )
                     })
                   }
-                <p className="text-base font-mono font-bold text-white">Auditors Assigned  : </p>
+                <p className="text-base font-mono font-bold text-white py-2">Auditors Assigned  : </p>
                   {
-                  AssignAddr.map((auditorAddr, i)=>{
+                  AssignAddr.map((auditorAddr)=>{
                   return (
-                    <p key={i} className="text-base font-mono font-bold text-white">{auditorAddr}</p>
+                    <p key={auditorAddr} className="font-mono font-light text-sm text-white">{auditorAddr}</p>
                     )
                     })
-                  }
-              </div> <div className="p-12 justify-center">
-              <button onClick={payAuditors} className="font-bold mt-4 bg-blue-700 text-white rounded p-4 shadow-lg">
-                Pay Auditors
-              </button>
+                  }                 
               </div>
             </div>
           </div>

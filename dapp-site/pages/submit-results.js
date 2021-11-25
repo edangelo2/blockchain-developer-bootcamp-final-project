@@ -208,29 +208,32 @@ useEffect(() => {
             <div key={AItem.Id} className="border shadow rounded-xl overflow-hidden ">
               <img src={AItem.image} className="rounded" />
               <div className="p-4 bg-black">
+              <p className="text-lg font-bold text-white">Audit ID  : {id} </p>
                 <p className="text-2xl font-bold text-white">{AItem.name}</p>
                 <p className="text-xl font-italic text-white">{AItem.description}</p>
               </div>
               <div className="p-4 bg-green-400">
-                <p className="text-base font-mono font-bold text-white">Audit Fee  : {AItem.auditFee} Eth</p>
+                <p className="text-base font-mono font-bold text-white">Audit Fee  : {AItem.auditFee} eth</p>
                 <p className="text-base font-mono font-bold text-white">Auditors required  : {AItem.auditReqs}</p>
-                <p className="text-base font-mono font-bold text-white">Producer  : {AItem.producer}</p>
-                <p className="text-base font-mono font-bold text-white">Auditors Enrolled  : </p>
-                  {
-                  EnrollAddr.map((auditorAddr,i)=>{
-                  return (
-                    <p key={i} className="text-base font-mono font-bold text-white">{auditorAddr}</p>
-                    )
-                    })
-                  }
-                <p className="text-base font-mono font-bold text-white">Auditors Assigned  : </p>
-                  {
-                  AssignAddr.map((auditorAddr,i)=>{
-                  return (
-                    <p key={i} className="text-base font-mono font-bold text-white">{auditorAddr}</p>
-                    )
-                    })
-                  }
+                <p className="text-base font-mono font-bold text-white py-2 ">Producer  : </p>
+                <p  className="font-mono font-light text-sm text-white py-2">{AItem.producer}</p>
+
+                    <p className="text-base font-mono font-bold text-white py-2">Auditors Enrolled  : </p>
+                    {
+                    EnrollAddr.map((auditorAddr)=>{
+                    return (
+                      <p key={auditorAddr} className="font-mono font-light text-sm text-white">{auditorAddr}</p>
+                      )
+                      })
+                    }
+                    <p className="text-base font-mono font-bold text-white py-2">Auditors Assigned  : </p>
+                    {
+                    AssignAddr.map((auditorAddr)=>{
+                    return (
+                      <p key={auditorAddr} className="font-mono font-light text-sm text-white">{auditorAddr}</p>
+                      )
+                      })
+                    }
               </div>
             </div>
           </div>

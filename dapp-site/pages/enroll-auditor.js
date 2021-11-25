@@ -95,52 +95,54 @@ export default function EnrollAuditor() {
     const contract3 = new ethers.Contract(DAuditaddress, DAudit.abi, signer3)
     /* user will be prompted to pay 0 + gas fees */ 
     const signerAddress = await signer3.getAddress();
-    
-    const transaction3 = await contract3.enrollAuditor(id,signerAddress,{value:'0'})
 
-    const trxR = await transaction3.wait()
-    console.log(trxR)
-    
+    try {
+      const transaction3 = await contract3.enrollAuditor(id,signerAddress,{value:'0'})
+      const trxR = await transaction3.wait()
+    }
+    catch (error) {
+      if (error.code = -32603) {
+      window.alert('Auditor cannot be the producer'); }
+      else {
+        window.alert('Check Console')
+        console.log(error)
+      }
+    }
+       
     loadAuditItems()
   }
   
   if (loadingState === 'loaded' && AItem.tokenId === null) 
     return (<h1 className="px-20 py-10 text-3xl">No audits to enroll</h1>)
-  return (
-    
+  return (  
     <div className="flex justify-center">
       <div className="p-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
-                     <div key={AItem.Id} className="border shadow rounded-xl overflow-hidden">
-                <img src={AItem.image} className="rounded" />
-                <div className="p-4 bg-black">
-                  <p className="text-2xl font-bold text-white">{AItem.name}</p>
-                  <p className="text-xl font-italic text-white">{AItem.description}</p>
-                </div>
-                <div className="p-4 bg-green-400">
-                <p className="text-base font-mono font-bold text-white">Audit Fee  : {AItem.auditFee} Eth</p>
-                <p className="text-base font-mono font-bold text-white">Auditors required  : {AItem.auditReqs}</p>
-                
-                    <button className="w-full bg-blue-500 text-white font-bold py-2 px-0 rounded" onClick={() => enrollAuditor()}>Enroll Auditor</button>
-                
-                <p className="text-base font-mono font-bold text-white">Producer  : {AItem.producer}</p>
-
-
-                    <p className="text-base font-mono font-bold text-white">Auditors Enrolled  : </p>
-                    {
+          <div key={AItem.Id} className="border shadow rounded-xl overflow-hidden">
+            <img src={AItem.image} className="rounded" />
+            <div className="p-4 bg-black">
+                <p className="text-lg font-bold text-white">Audit ID  : {id} </p>
+                <p className="text-2xl font-bold text-white">{AItem.name}</p>
+                <p className="text-xl font-italic text-white">{AItem.description}</p>
+            </div>
+            <div className="p-4 bg-green-400">
+                <p className="text-base font-mono font-bold text-white">Audit Fee  : {AItem.auditFee} eth</p>
+                <p className="text-base font-mono font-bold text-white">Auditors required  : {AItem.auditReqs}</p>  
+                <button className="w-full bg-blue-500 text-white font-bold py-2 px-0 rounded" onClick={() => enrollAuditor()}>Enroll Auditor</button>               
+                <p className="text-base font-mono font-bold text-white py-2">Producer  : </p>
+                <p className="font-mono font-light text-sm text-white py-2">{AItem.producer}</p>
+                <p className="text-base font-mono font-bold text-white py-2">Auditors Enrolled  : </p>
+                  {
                     EnrollAddr.map((auditorAddr)=>{
                     return (
-                      <p key={auditorAddr} className="text-base font-mono font-bold text-white">{auditorAddr}</p>
+                      <p key={auditorAddr} className="font-mono font-light text-sm text-white">{auditorAddr}</p>
                       )
-                      })
-                    }
-              
-                </div>
-              </div>
+                    })
+                  }
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-
-      )
+    )
 }

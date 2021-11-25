@@ -31,7 +31,7 @@ import AuditItem from '../contracts/AuditItem.json'
 import DAudit from '../contracts/DAudit.json'
 
 export default function Home() {
-  const auditItemStatuses = ['Pending','InProgress', 'Passed', 'Failed', 'Cancelled']  
+  const auditItemStatuses = ['Pending','In Progress', 'Passed', 'Failed', 'Cancelled']  
   const [AuditItems, setAuditItems] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
   useEffect(() => {
@@ -144,7 +144,6 @@ export default function Home() {
                                     </div>
                                     <div className="ml-4">
                                         <div className="text-sm font-medium text-gray-900">{AuditItem.name}</div>
-                                        <div className="text-sm text-gray-500">{AuditItem.email}</div>
                                     </div>
                                     </div>
                                 </td>
@@ -152,7 +151,7 @@ export default function Home() {
                                     <div className="text-sm text-gray-900">{AuditItem.description}</div>
                                 </td>
                                 <td className="px-6 py-4 whitespace-nowrap">
-                                    <div className="text-sm text-gray-500">{AuditItem.auditFee}</div>
+                                    <div className="text-sm text-gray-500">{AuditItem.auditFee} eth</div>
                                 </td>                                
                                 <td className="px-6 py-4 whitespace-nowrap">
                                     <div className="text-sm text-gray-500">{AuditItem.auditReqs}</div>

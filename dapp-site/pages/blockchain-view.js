@@ -42,6 +42,8 @@ export default function Home() {
   const [AuditorAssignments, setAuditorAssignments] = useState([])
   const [AuditResults, setAuditResults] = useState([])  
   const [loadingState, setLoadingState] = useState('not-loaded')
+  const [SCbalance, setSCbalance] = useState('0')
+  
   useEffect(() => {
     loadAuditItems()
   }, [])
@@ -52,7 +54,8 @@ export default function Home() {
     const auditItemContract = new ethers.Contract(auditItemAddress, AuditItem.abi, provider)
     const DAuditContract = new ethers.Contract(DAuditaddress, DAudit.abi, provider)
     const data = await DAuditContract.fetchAudits()
-    
+    let _SCbalance = ethers.utils.formatEther(await provider.getBalance(DAuditContract.address))
+    setSCbalance(_SCbalance)
     /*
     *  map over items returned from smart contract and format 
     *  them as well as fetch their token metadata
@@ -61,10 +64,12 @@ export default function Home() {
       const tokenUri = await auditItemContract.tokenURI(i.tokenId)
       const meta = await axios.get(tokenUri)
       let auditFee = ethers.utils.formatUnits(i.auditFee.toString(), 'ether')
+      let producerBal = ethers.utils.formatEther(await provider.getBalance(i.producer))
       let item = {
         auditFee,
         tokenId: i.tokenId.toNumber(),
         producer: i.producer,
+        producerBalance: producerBal,
         owner: i.owner,
         image: meta.data.image,
         name: meta.data.name,
@@ -87,15 +92,23 @@ export default function Home() {
     */
     const enrollments = await Promise.all(enrollmentData.map(async i => {
 
+      let auditorBalances = new Array();      
+      for (let ii = 0; ii < i.auditors.length; ii++) 
+      {
+        let auditorBal = ethers.utils.formatEther(await provider.getBalance(i.auditors[ii]))
+        auditorBalances[ii] = auditorBal
+      }
+
       let enrollment = {
         auditId: i.auditId.toNumber(),
-        auditors: i.auditors
+        auditors: i.auditors,
+        auditorsBal: auditorBalances
       }
-      console.log(enrollment)
+      //console.log(enrollment)
       return enrollment
     }))
     setAuditorEnrollments(enrollments)
-    console.log(enrollments)
+    //console.log(enrollments)
 
     const provider3 = new ethers.providers.Web3Provider(window.ethereum);
     const contract3 = new ethers.Contract(auditAssignments, AuditAssignments.abi, provider3)
@@ -105,20 +118,30 @@ export default function Home() {
     *  map over items returned from smart contract and format 
     *  them as well as fetch their token metadata
     */
-    const assignments = await Promise.all(assignmentData.map(async i => {
+    const assignments = await Promise.all(assignmentData.map(async i => {    
+
+    let auditorBalances = new Array();
+    
+    for (let ii = 0; ii < i.auditors.length; ii++) 
+    {
+      let auditorBal = ethers.utils.formatEther(await provider.getBalance(i.auditors[ii]))
+      auditorBalances[ii] = auditorBal
+    }
+
     let assignment = {
         auditId: i.auditId.toNumber(),
         auditors: i.auditors,
+        auditorsBal: auditorBalances,
         auditResultIds: i.auditResultIds,
         auditorFees: i.auditorFees       ,
         auditorFeePaid: i.auditorFeePaid,
         auditorResults: i.auditorResults
       }
-      console.log(assignment)
+      //console.log(assignment)
       return assignment
     }))
     setAuditorAssignments(assignments)
-    console.log(assignments)
+    //console.log(assignments)
 
 
 
@@ -186,6 +209,7 @@ export default function Home() {
                                     <div className="ml-4">
                                         <div className="text-sm font-medium text-gray-900">{AuditItem.name}</div>
                                         <div className="text-xs font-thin text-black-900">Producer: {AuditItem.producer}</div>
+                                        <div className="text-xs font-thin text-black-900">Producer: {AuditItem.producerBalance} eth</div>
                                     </div>
                                     </div>
                                 </td>
@@ -257,6 +281,21 @@ export default function Home() {
                                     </div>
                                     </div>
                                 </td>
+                                <td className="px-1 py-1 whitespace-nowrap">
+                                    <div className="flex items-center">
+                                    <div className="ml-4">
+                                        <div className="text-sm font-medium text-gray-900">
+                                        {
+                                          AuditEnrollment.auditorsBal.map((auditorBal,i)=>{
+                                          return (
+                                            <p key={i} className="text-xs font-thin text-black-900">{auditorBal} eth</p>
+                                            )
+                                            })
+                                        }
+                                        </div>
+                                    </div>
+                                    </div>
+                                </td>
                             </tr>
                         )
                     )
@@ -296,6 +335,12 @@ export default function Home() {
                   scope="col"
                   className="px-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
+                  Auditors Balances
+                </th>                
+                <th
+                  scope="col"
+                  className="px-3 py-1 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Fees
                 </th>
                 <th
@@ -327,6 +372,21 @@ export default function Home() {
                                             AAssignments.auditors.map((auditorAddr)=>{
                                             return (
                                               <p key={auditorAddr} className="text-xs font-thin text-black-900">{auditorAddr}</p>
+                                              )
+                                              })
+                                          }
+                                          </div>
+                                      </div>
+                                    </div>
+                                </td>
+                                <td className="px-1 py-1 whitespace-nowrap">
+                                    <div className="flex items-center">
+                                      <div className="ml-4">
+                                          <div className="text-sm font-medium text-gray-900">
+                                          {
+                                            AAssignments.auditorsBal.map((auditorBal,i)=>{
+                                            return (
+                                              <p key={auditorBal} className="text-xs font-thin text-black-900">{auditorBal} eth</p>
                                               )
                                               })
                                           }
@@ -407,10 +467,10 @@ export default function Home() {
     
 
 
-
+    <div className="px-1 py-1 text-left text-xxl font-medium text-gray-500 uppercase tracking-wider">Smart Contract Balance: {SCbalance} eth</div>   
   </div>
 
-    
+
   )
 }
   
