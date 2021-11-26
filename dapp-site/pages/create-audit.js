@@ -74,6 +74,11 @@ export default function CreateAuditItem() {
 
   async function createItem(url) {
 
+    /* Check the presence of Metamask */
+    if (!window.ethereum || !window.ethereum.isMetaMask) {
+      window.alert('Metamask is not installed')
+      return
+    } 
     // Connect to the wallet
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()

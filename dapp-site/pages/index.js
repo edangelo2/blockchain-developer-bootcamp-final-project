@@ -30,16 +30,26 @@ import {
 import AuditItem from '../contracts/AuditItem.json'
 import DAudit from '../contracts/DAudit.json'
 
+
 export default function Home() {
   const auditItemStatuses = ['Pending','In Progress', 'Passed', 'Failed', 'Cancelled']  
   const [AuditItems, setAuditItems] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
+  const [metaMask, setMetaMask] = useState('installed')
   useEffect(() => {
     loadAuditItems()
   }, [])
+  
+    
   async function loadAuditItems() {
+
+    /* Check the presence of Metamask */
+    if (!window.ethereum || !window.ethereum.isMetaMask) {
+      setMetaMask('not-installed')
+      return
+    } 
+
     /* create a generic provider and query for pending audit items */
-    // const provider = new ethers.providers.JsonRpcProvider()
     
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const auditItemContract = new ethers.Contract(auditItemAddress, AuditItem.abi, provider)
@@ -69,9 +79,12 @@ export default function Home() {
     }))
     setAuditItems(items)
     setLoadingState('loaded') 
+  
   }
-
-  if (loadingState === 'loaded' && !AuditItems.length) return (<h1 className="px-20 py-10 text-3xl">No items submitted for audits</h1>)
+  if (metaMask === 'not-installed') return (<h1 className="px-20 py-10 text-3xl">MetaMask is not installed</h1>)
+  if (loadingState === 'loaded' && !AuditItems.length && metaMask === 'not-installed' ) 
+    return (<h1 className="px-20 py-10 text-3xl">No items submitted for audits</h1>)
+  
   return (
     <div className="flex flex-col ">
     <div className="-my-2 overflow-x-auto sm:-mx-8 lg:-mx-8 ">
