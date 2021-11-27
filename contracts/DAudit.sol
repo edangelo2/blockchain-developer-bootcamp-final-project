@@ -304,11 +304,11 @@ contract DAudit is ReentrancyGuard {
         uint256 assignmentsCount = 0;
 
         // Loop until complete the auditors required
-        uint256 randNonce = 0;
+        //uint256 randNonce = 0;
         do {
             for (uint256 i = 0; i < auditorsEnrollArray.length; i++) {
-                // Flip the coin
-                if ((randMod(2, randNonce)) == 0) {
+                // Flip the coin - spending too much gas, v1.0 will assign sequentially
+                //if ((randMod(2, randNonce)) == 0) {
                     if (
                         !isAddressInArray(
                             auditorsAssigned,
@@ -321,9 +321,9 @@ contract DAudit is ReentrancyGuard {
                         ] = auditorsEnrollArray[i];
                         assignmentsCount++;
                     }
-                }
+                //}
                 if (assignmentsCount == item.auditorReq) break;
-                randNonce++;
+                //randNonce++;
             }
         } while (assignmentsCount < item.auditorReq);
 
