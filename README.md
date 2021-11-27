@@ -133,7 +133,7 @@ auditResultAddress = "0x98BcDAe1fE42ee106DF1A6aa4221363928a86aE2"
 The Dapp is hosted in Netifly in the following URL: https://edangelo2-consensys-project.netlify.app/
 
 ## Screen Cast of the Dapp showing its functionality 
-Loom link:
+Loom link: https://www.loom.com/share/914f7999d1d546f38dbec67f00513afc?sharedAppSource=personal_library 
 
 ## Ethereum account to receive the certification as an NFT
 0x745E9390F6Fdcc932AB5b41850aB94C87f224974
