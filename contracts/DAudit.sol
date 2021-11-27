@@ -327,7 +327,7 @@ contract DAudit is ReentrancyGuard {
             }
         } while (assignmentsCount < item.auditorReq);
 
-        // assign the auditor
+        // assign the auditor0
         IAuditAssignments AAssignments = IAuditAssignments(
             auditAssignmentsAddr
         );
