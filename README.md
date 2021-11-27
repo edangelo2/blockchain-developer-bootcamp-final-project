@@ -130,7 +130,7 @@ auditResultAddress = "0x98BcDAe1fE42ee106DF1A6aa4221363928a86aE2"
 ```
 
 ## Dapp Site URL
-The Dapp is hosted in Netifly in the following URL: https://quirky-leavitt-985d0f.netlify.app
+The Dapp is hosted in Netifly in the following URL: https://edangelo2-consensys-project.netlify.app/
 
 ## Screen Cast of the Dapp showing its functionality 
 Loom link:
