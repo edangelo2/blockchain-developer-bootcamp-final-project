@@ -117,18 +117,38 @@ Run the following command:
   <summary>Test Results - Click to expand!</summary>
 
 ```
-Using network 'test'.
-
-
 Compiling your contracts...
 ===========================
-> Everything is up to date, there is nothing to compile.
+> Compiling ./contracts/AuditAssignments.sol
+> Compiling ./contracts/AuditEnrollments.sol
+> Compiling ./contracts/AuditItem.sol
+> Compiling ./contracts/AuditResult.sol
+> Compiling ./contracts/DAudit.sol
+> Compiling ./contracts/IAuditorAssignments.sol
+> Compiling ./contracts/IAuditorEnrollments.sol
+> Compiling ./contracts/Migrations.sol
+> Compiling @openzeppelin/contracts/security/ReentrancyGuard.sol
+> Compiling @openzeppelin/contracts/token/ERC721/ERC721.sol
+> Compiling @openzeppelin/contracts/token/ERC721/IERC721.sol
+> Compiling @openzeppelin/contracts/token/ERC721/IERC721Receiver.sol
+> Compiling @openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol
+> Compiling @openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol
+> Compiling @openzeppelin/contracts/utils/Address.sol
+> Compiling @openzeppelin/contracts/utils/Context.sol
+> Compiling @openzeppelin/contracts/utils/Counters.sol
+> Compiling @openzeppelin/contracts/utils/Strings.sol
+> Compiling @openzeppelin/contracts/utils/introspection/ERC165.sol
+> Compiling @openzeppelin/contracts/utils/introspection/IERC165.sol
+> Compiling @openzeppelin/contracts/utils/math/SafeMath.sol
+> Artifacts written to /var/folders/gw/9kzzf_t16gn1815x05jd1_tm0000gn/T/test--19492-zwfx8Jt4JVZQ
+> Compiled successfully using:
+   - solc: 0.8.3+commit.8d00100c.Emscripten.clang
 
 export const auditAssignments = "0x345cA3e014Aaf5dcA488057592ee47305D9B3e10"
-export const auditEnrollments = " 0x8f0483125FCb9aaAEFA9209D8E9d7b9C8B9Fb90F
-export const DAudit = " 0x2C2B9C9a4a25e24B174f26114e8926a9f2128FE4
-export const auditItem = "0xFB88dE099e13c3ED21F80a7a1E49f8CAEcF10df6"
-export const auditResult = "0xf204a4Ef082f5c04bB89F7D5E6568B796096735a"
+export const auditEnrollments = "0x8f0483125FCb9aaAEFA9209D8E9d7b9C8B9Fb90F"
+export const DAuditaddress = "0x2C2B9C9a4a25e24B174f26114e8926a9f2128FE4"
+export const auditItemAddress = "0xFB88dE099e13c3ED21F80a7a1E49f8CAEcF10df6"
+export const auditResultAddress = "0xf204a4Ef082f5c04bB89F7D5E6568B796096735a"
 
 
   Contract: DAudit
@@ -139,8 +159,8 @@ Listing AuditFee=
 Pay Fee= 
 0.012
     ✓ Should get Listing Fee 
-    ✓ Should Mint two Audit Items  (98ms)
-    ✓ Should Create Two Audit items with minted NFTs (694ms)
+    ✓ Should Mint two Audit Items  (110ms)
+    ✓ Should Create Two Audit items with minted NFTs (711ms)
 List of pending Audit Items
 items:  [
   {
@@ -158,7 +178,7 @@ items:  [
     tokenUri: 'https://www.mytokenlocation2.com'
   }
 ]
-    ✓ Should retrive pending items (610ms)
+    ✓ Should retrive pending items (632ms)
 List of auditors enrolled for Audit Item 1: 
 {
   index: '0',
@@ -178,7 +198,7 @@ List of Auditors enrolled for Audit Item 2:
     '0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef'
   ]
 }
-    ✓ Should enroll Auditors (702ms)
+    ✓ Should enroll Auditors (736ms)
 Auditors assigned for Audit Item 1 
 {
   index: '0',
@@ -188,8 +208,8 @@ Auditors assigned for Audit Item 1
     '0x821aEa9a577a9b44299B9c15c88cf3087F3b5544'
   ]
 }
-    ✓ Should assign Auditors (1299ms)
-    ✓ Should not assign Auditors if it is not the owner (935ms)
+    ✓ Should assign Auditors (1268ms)
+    ✓ Should not assign Auditors if it is not the owner (1060ms)
 
   Contract: DAudit Results
 Pay fee: 12000000000000000
@@ -220,10 +240,11 @@ Account 0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef - Balance: 100.00411515
 Account 0xeec918d74c746167564401103096D45BbD494B74 - Balance: 0.014
 Previous Balance Eth 99.950138964
 Current Balance Eth 99.94970397
-    ✓ Create two Audit Items Results and Pay auditors (2740ms)
+    ✓ Create two Audit Items Results and Pay auditors (2675ms)
 
 
   8 passing (9s)
+
 ```
 </details>
 
