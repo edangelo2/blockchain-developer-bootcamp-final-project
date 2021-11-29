@@ -105,9 +105,19 @@ contract AuditEnrollments {
     public
     returns(bool success) 
   {
+    if(isAuditEnrolled(auditId)) {
+      bool alreadyEnrolled = false;
+      address[] memory auditorsEnrolled = auditEnrollments[auditId].auditors;
 
-    if(isAuditEnrolled(auditId))
-       auditEnrollments[auditId].auditors.push(auditor);
+      for (uint256 i = 0; i < auditorsEnrolled.length; i++) {
+        if (auditorsEnrolled[i] == auditor) {
+        alreadyEnrolled = true;
+        break; // found the auditor in the assignment array 
+        }      
+      }
+      require(!alreadyEnrolled,"Auditor already enrolled");
+      auditEnrollments[auditId].auditors.push(auditor);
+    } 
     else {
         address[] memory auditors = new address[](1);
         auditors[0] = auditor;
