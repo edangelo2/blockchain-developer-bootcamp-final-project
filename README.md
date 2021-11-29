@@ -270,23 +270,35 @@ Loom link: https://www.loom.com/share/914f7999d1d546f38dbec67f00513afc?sharedApp
 
 ## Dapp Description and instrucctions to install it and run it locally
 
-The Dapp is a React/Next Web3 application. Although the Dapp is hosted in Netifly as required for the project, if you want to install it and run it locally below are the steps to perform the installation.
+The Dapp is a React/Next Web3 application. Although the Dapp is hosted in Netifly as required for the project, if you want to install it and run it locally below are the steps to perform the installation:
+### Installing the Dapp
 
-### Next.js
-`npx create-next-app dapp`
-This command will create the directory for the dapp client, install the react/next dependencies and a basic example.
-After creating the dapp we need to install additional components for the dapp in the directory we´ve just created:
-`cd dapp` and install the following:
-### Ethers, IPFS, Axios
-`npm install ethers ipfs-http-client@50.1.2 axios web3modal`
-### Tailwind CCS
-`npm install -D tailwindcss@latest postcss@latest autoprefixer@latest`
+`cd dapp` previous to install the dependencies in the dapp directory
 
-### Replace pages with the DAudit App
-The Dapp Site contains the pages for the DAudit App, configuration files and contracts.json files.
-These files need to be copied into the dapp directory. 
-The following command will work for copying the files from the dapp directory:
-`cp -R ../dapp-site/ .`
+`npm install ` will install the dependencies detailed in the package.json file.
+
+<details>
+  <summary>Dependencies for Dapp - Click to expand!</summary>
+
+```
+  "dependencies": {
+    "axios": "^0.24.0",
+    "ethers": "^5.5.1",
+    "ipfs-http-client": "^50.1.2",
+    "next": "12.0.4",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "web3modal": "^1.9.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.4",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19"
+  }
+```
+</details>
 
 ### Running the Dapp
 #### Ensure that the Smart contracts are up-and-running
@@ -299,7 +311,10 @@ Within the console you can run the command
 `config.js` file must point to the addresses of the smart contract on the network you want the dapp to work.
 Should it be localhost then you can obtain these addresses from console when running `truffle migrate`. Just copy and paste the addresses in the file it in the file.
 #### Start the Dapp 
-`npm run dev` will do the work and start the Dapp locally (usually http://localhost:3000/)
+
+`cd dapp` change the directory to start the dapp
+
+`npm run dev` start the Dapp locally (usually http://localhost:3000/)
 #### Access the Dapp from the browser
 Access the browser URL and ensure you are in the correct network and port in Metamask.
 
