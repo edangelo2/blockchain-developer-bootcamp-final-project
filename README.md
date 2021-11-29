@@ -109,14 +109,154 @@ develop: {
      }
 ```
 
-Run the following commands:
-
-`truffle develop`
-
-`truffle migrate --network develop`
+Run the following command:
 
 `truffle test`
 
+<details>
+  <summary>Test Results - Click to expand!</summary>
+
+```
+Using network 'test'.
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+export const auditAssignments = "0x345cA3e014Aaf5dcA488057592ee47305D9B3e10"
+export const auditEnrollments = " 0x8f0483125FCb9aaAEFA9209D8E9d7b9C8B9Fb90F
+export const DAudit = " 0x2C2B9C9a4a25e24B174f26114e8926a9f2128FE4
+export const auditItem = "0xFB88dE099e13c3ED21F80a7a1E49f8CAEcF10df6"
+export const auditResult = "0xf204a4Ef082f5c04bB89F7D5E6568B796096735a"
+
+
+  Contract: DAudit
+Listing Fee= 
+0.002
+Listing AuditFee= 
+0.01
+Pay Fee= 
+0.012
+    ✓ Should get Listing Fee 
+Audit Items minted successfully
+    ✓ Should Mint two Audit Items  (122ms)
+Audit Items minted successfully
+Audit Items created successfully
+    ✓ Should Create Two Audit items with minted NFTs (680ms)
+Audit Items minted successfully
+Audit Items created successfully
+List of pending Audit Items
+items:  [
+  {
+    price: '10000000000000000',
+    tokenId: '1',
+    seller: '0x627306090abaB3A6e1400e9345bC60c78a8BEf57',
+    owner: '0x0000000000000000000000000000000000000000',
+    tokenUri: 'https://www.mytokenlocation.com'
+  },
+  {
+    price: '10000000000000000',
+    tokenId: '2',
+    seller: '0x627306090abaB3A6e1400e9345bC60c78a8BEf57',
+    owner: '0x0000000000000000000000000000000000000000',
+    tokenUri: 'https://www.mytokenlocation2.com'
+  }
+]
+    ✓ Should retrive pending items (621ms)
+Enrolling Auditors for Audit Item 1
+List of auditors enrolled for Audit Item 1: 
+{
+  index: '0',
+  auditId: '1',
+  auditors: [
+    '0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef',
+    '0x821aEa9a577a9b44299B9c15c88cf3087F3b5544',
+    '0x0d1d4e623D10F9FBA5Db95830F7d3839406C6AF2'
+  ]
+}
+Enrolling Auditors for Audit Item 2
+List of Auditors enrolled for Audit Item 2: 
+{
+  index: '1',
+  auditId: '2',
+  auditors: [
+    '0xf17f52151EbEF6C7334FAD080c5704D77216b732',
+    '0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef'
+  ]
+}
+    ✓ Should enroll Auditors (708ms)
+Assign auditors for Audit Item 1: 
+Auditors assigned for Audit Item 1 
+{
+  index: '0',
+  auditId: '1',
+  auditors: [
+    '0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef',
+    '0x821aEa9a577a9b44299B9c15c88cf3087F3b5544'
+  ]
+}
+    ✓ Should assign Auditors (1281ms)
+    ✓ Should not assign Auditors if it is not the owner (951ms)
+
+  Contract: DAudit Results
+Pay fee: 12000000000000000
+Assign auditors for Audit Item 1: 
+Auditors assigned for Audit Item 1 
+{
+  index: '0',
+  auditId: '1',
+  auditors: [
+    '0xf17f52151EbEF6C7334FAD080c5704D77216b732',
+    '0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef'
+  ]
+}
+/* Create two Audit Results */
+/* Audit Results */
+idTokenResult1:  1
+idTokenResult2:  2
+/* Submit Audit Results - Auditor 1 */
+/* Submit Audit Results - Auditor 2 */
+P1 pre:
+0x2932b7A2355D6fecc4b5c0B6BD44cC31df247a2e
+99.987254382
+P2 pre:
+0x2191eF87E392377ec08E7c08Eb105Ef5448eCED5
+99.987304188
+A1pre :
+0xf17f52151EbEF6C7334FAD080c5704D77216b732
+99.999124364
+A2 pre:
+0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef
+99.99911515
+Smart Contract pre:
+0xeec918d74c746167564401103096D45BbD494B74
+0.024
+/* Pay auditors with the smart contract owner */
+P1:
+0x2932b7A2355D6fecc4b5c0B6BD44cC31df247a2e
+99.987254382
+P2:
+0x2191eF87E392377ec08E7c08Eb105Ef5448eCED5
+99.987304188
+A1:
+0xf17f52151EbEF6C7334FAD080c5704D77216b732
+100.004124364
+A2:
+0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef
+100.00411515
+Smart Contract:
+0xeec918d74c746167564401103096D45BbD494B74
+0.014
+Previous Balance Wei 99950138964000000000
+Previous Balance Eth 99.950138964
+Current Balance Wei 99949703970000000000
+Current Balance Eth 99.94970397
+    ✓ Create two Audit Items Results and Pay auditors (2715ms)
+
+
+  8 passing (9s)
+```
+</details>
 
 ## Smart Contracts Deployments
 
@@ -161,7 +301,6 @@ The following command will work for copying the files from the dapp directory:
 ### Running the Dapp
 #### Ensure that the Smart contracts are up-and-running
 `truffle develop`
-
 `truffle migrate --network develop`
 #### Setup the config.js with the addresses of the smart contracts 
 `config.js` file must point to the addresses of the smart contract on the network you want the dapp to work.
