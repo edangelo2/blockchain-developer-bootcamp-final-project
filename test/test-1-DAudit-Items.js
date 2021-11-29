@@ -53,7 +53,7 @@ contract("DAudit", function (accounts) {
     assert.equal("Transfer", trxT2.logs[0].event);
     assert.equal('2', trxT2.logs[0].args.tokenId.toString());
 
-    console.log('Audit Items minted successfully');
+    // console.log('Audit Items minted successfully');
   })
 
   it("Should Create Two Audit items with minted NFTs", async function () { 
@@ -67,13 +67,13 @@ contract("DAudit", function (accounts) {
     const trxT1 = await auditItem.createToken("https://www.mytokenlocation.com")
     const trxT2 = await auditItem.createToken("https://www.mytokenlocation2.com")
     
-    console.log('Audit Items minted successfully');
+    // console.log('Audit Items minted successfully');
 
     /* Submits two Audit Items for auditing */
     const trxAItem1 = await dAudit.createAuditItem(auditItem.address, 1, auditFee, 3, { value: payFeeStr })
     const trxAItem2 =await dAudit.createAuditItem(auditItem.address, 2, auditFee, 3, { value: payFeeStr })  
  
-    console.log('Audit Items created successfully');
+    // console.log('Audit Items created successfully');
 
     assert.isTrue(trxAItem1.logs.length > 0, "Emit at least one event");
     assert.equal("AuditItemCreated", trxAItem1.logs[0].event);
@@ -96,13 +96,13 @@ contract("DAudit", function (accounts) {
     const trxT1 = await auditItem.createToken("https://www.mytokenlocation.com")
     const trxT2 = await auditItem.createToken("https://www.mytokenlocation2.com")
     
-    console.log('Audit Items minted successfully');
+    // console.log('Audit Items minted successfully');
 
     /* Submits two Audit Items for auditing */
     const trxAItem1 = await dAudit.createAuditItem(auditItem.address, 1, auditFee, 3, { value: payFeeStr })
     const trxAItem2 =await dAudit.createAuditItem(auditItem.address, 2, auditFee, 3, { value: payFeeStr })  
  
-    console.log('Audit Items created successfully');
+    // console.log('Audit Items created successfully');
 
     /* Query and return the audit items in pending status */
     let items = await dAudit.fetchPendingAudits()
@@ -151,7 +151,7 @@ contract("DAudit", function (accounts) {
     const auditorsEnrolled2 = new Array(auditor1Addr, auditor2Addr);
 
     /* Add Auditors Enrollments  for Audit Item 1*/
-    console.log('Enrolling Auditors for Audit Item 1')
+    // console.log('Enrolling Auditors for Audit Item 1')
     const tx3 = await auditEnrollments.insertAuditEnrollment(AItem1,auditorsEnrolled1,{value:payFeeStr})
     
     assert.isTrue(tx3.logs.length > 0, "Emit at least one event");
@@ -165,7 +165,7 @@ contract("DAudit", function (accounts) {
     console.log(AD2JSON(AuditData1))
 
     /* Add Auditors Enrollments  for Audit Item 2*/
-    console.log('Enrolling Auditors for Audit Item 2')
+    // console.log('Enrolling Auditors for Audit Item 2')
     const tx4 = await auditEnrollments.insertAuditEnrollment(AItem2,auditorsEnrolled2, {value:payFeeStr})
 
     assert.isTrue(tx4.logs.length > 0, "Emit at least one event");
@@ -200,7 +200,7 @@ contract("DAudit", function (accounts) {
       let AuditData2 = await auditEnrollments.getAuditEnrollment(AItem2)
 
       /* Assign Auditors for Audit Item 1 */
-      console.log('Assign auditors for Audit Item 1: ')
+      // console.log('Assign auditors for Audit Item 1: ')
       const tx5 = await dAudit.assignAuditors(AItem1, { value: 0 })
 
       /* Get Auditors assigned for Audit Item 1 */

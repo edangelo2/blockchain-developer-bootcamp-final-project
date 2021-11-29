@@ -40,9 +40,9 @@ contract("DAudit Results", function (accounts) {
     let AuditData1 = await auditEnrollments.getAuditEnrollment(AItem1)
     const tx4 = await auditEnrollments.insertAuditEnrollment(AItem2,auditorsEnrolled1, {value:payFeeStr , from: auditor2Addr})
     let AuditData2 = await auditEnrollments.getAuditEnrollment(AItem2)
-    console.log('Assign auditors for Audit Item 1: ')
+    //console.log('Assign auditors for Audit Item 1: ')
     const tx5 = await dAudit.assignAuditors(AItem1, { value: 0 })
-    console.log('Auditors assigned for Audit Item 1 ')
+    //console.log('Auditors assigned for Audit Item 1 ')
     let AuditData1Assigned = await auditAssignments.getAuditAssignment(AItem1)
     console.log(AD2JSON(AuditData1Assigned))
 
@@ -52,7 +52,7 @@ contract("DAudit Results", function (accounts) {
         tx9 = await auditResult.createToken("https://www.mytokenlocation2.com", {from: auditor2Addr})
     
         // The create token function emits a Transfer Event returned in the rec
-        console.log('/* Audit Results */')
+        // console.log('/* Audit Results */')
         idTokenResult1 = tx8.logs[0].args.tokenId.toNumber();
         console.log('idTokenResult1: ',idTokenResult1)
         idTokenResult2 = tx9.logs[0].args.tokenId.toNumber();
@@ -74,19 +74,19 @@ contract("DAudit Results", function (accounts) {
         assert.equal('2', tx11.logs[0].args.tokenIdResult.toString());
 
         previousBalance = await web3.eth.getBalance(accounts[0]);
-        console.log('P1 pre:')
+        console.log('Previous Balances:')
         await logBalance(producer1Addr)
 
-        console.log('P2 pre:')
+//        console.log('P2 pre:')
         await logBalance(producer2Addr)
 
-        console.log('A1pre :')
+//        console.log('A1pre :')
         await logBalance(auditor1Addr)
 
-        console.log('A2 pre:')
+//       console.log('A2 pre:')
         await logBalance(auditor2Addr)
 
-        console.log('Smart Contract pre:')
+//        console.log('Smart Contract pre:')
         await logBalance(dAudit.address)
 
 
@@ -96,29 +96,27 @@ contract("DAudit Results", function (accounts) {
            from: contractOwner,
            value: 0
          });
-         console.log('P1:')
+         // console.log('P1:')
          await logBalance(producer1Addr)
 
-         console.log('P2:')
+         // console.log('P2:')
          await logBalance(producer2Addr)
 
-         console.log('A1:')
+         // console.log('A1:')
          await logBalance(auditor1Addr)
 
-         console.log('A2:')
+         // console.log('A2:')
          await logBalance(auditor2Addr)
 
-         console.log('Smart Contract:')
+         // console.log('Smart Contract:')
          await logBalance(dAudit.address)
-
-
 
         // Takes the current balance of the smart contract address
         currentBalance = await web3.eth.getBalance(accounts[0]);
        
-        console.log('Previous Balance Wei',previousBalance)
+//        console.log('Previous Balance Wei',previousBalance)
         console.log('Previous Balance Eth',web3.utils.fromWei(previousBalance))
-        console.log('Current Balance Wei', currentBalance)
+//        console.log('Current Balance Wei', currentBalance)
         console.log('Current Balance Eth', web3.utils.fromWei(currentBalance))
 
         // After paying the auditors the balance of the SmartContract must be lower
@@ -142,7 +140,5 @@ function logBalances (a){
 
 async function logBalance(a1) {
   currentBalance = await web3.eth.getBalance(a1);
-  
-  console.log(a1)
-  console.log(web3.utils.fromWei(currentBalance))
+  console.log('Account '+a1+' - Balance:', web3.utils.fromWei(currentBalance))
 }

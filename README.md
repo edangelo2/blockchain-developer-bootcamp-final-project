@@ -119,6 +119,7 @@ Run the following command:
 ```
 Using network 'test'.
 
+
 Compiling your contracts...
 ===========================
 > Everything is up to date, there is nothing to compile.
@@ -138,13 +139,8 @@ Listing AuditFee=
 Pay Fee= 
 0.012
     ✓ Should get Listing Fee 
-Audit Items minted successfully
-    ✓ Should Mint two Audit Items  (122ms)
-Audit Items minted successfully
-Audit Items created successfully
-    ✓ Should Create Two Audit items with minted NFTs (680ms)
-Audit Items minted successfully
-Audit Items created successfully
+    ✓ Should Mint two Audit Items  (98ms)
+    ✓ Should Create Two Audit items with minted NFTs (694ms)
 List of pending Audit Items
 items:  [
   {
@@ -162,8 +158,7 @@ items:  [
     tokenUri: 'https://www.mytokenlocation2.com'
   }
 ]
-    ✓ Should retrive pending items (621ms)
-Enrolling Auditors for Audit Item 1
+    ✓ Should retrive pending items (610ms)
 List of auditors enrolled for Audit Item 1: 
 {
   index: '0',
@@ -174,7 +169,6 @@ List of auditors enrolled for Audit Item 1:
     '0x0d1d4e623D10F9FBA5Db95830F7d3839406C6AF2'
   ]
 }
-Enrolling Auditors for Audit Item 2
 List of Auditors enrolled for Audit Item 2: 
 {
   index: '1',
@@ -184,8 +178,7 @@ List of Auditors enrolled for Audit Item 2:
     '0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef'
   ]
 }
-    ✓ Should enroll Auditors (708ms)
-Assign auditors for Audit Item 1: 
+    ✓ Should enroll Auditors (702ms)
 Auditors assigned for Audit Item 1 
 {
   index: '0',
@@ -195,13 +188,11 @@ Auditors assigned for Audit Item 1
     '0x821aEa9a577a9b44299B9c15c88cf3087F3b5544'
   ]
 }
-    ✓ Should assign Auditors (1281ms)
-    ✓ Should not assign Auditors if it is not the owner (951ms)
+    ✓ Should assign Auditors (1299ms)
+    ✓ Should not assign Auditors if it is not the owner (935ms)
 
   Contract: DAudit Results
 Pay fee: 12000000000000000
-Assign auditors for Audit Item 1: 
-Auditors assigned for Audit Item 1 
 {
   index: '0',
   auditId: '1',
@@ -211,47 +202,25 @@ Auditors assigned for Audit Item 1
   ]
 }
 /* Create two Audit Results */
-/* Audit Results */
 idTokenResult1:  1
 idTokenResult2:  2
 /* Submit Audit Results - Auditor 1 */
 /* Submit Audit Results - Auditor 2 */
-P1 pre:
-0x2932b7A2355D6fecc4b5c0B6BD44cC31df247a2e
-99.987254382
-P2 pre:
-0x2191eF87E392377ec08E7c08Eb105Ef5448eCED5
-99.987304188
-A1pre :
-0xf17f52151EbEF6C7334FAD080c5704D77216b732
-99.999124364
-A2 pre:
-0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef
-99.99911515
-Smart Contract pre:
-0xeec918d74c746167564401103096D45BbD494B74
-0.024
+Previous Balances:
+Account 0x2932b7A2355D6fecc4b5c0B6BD44cC31df247a2e - Balance: 99.987254382
+Account 0x2191eF87E392377ec08E7c08Eb105Ef5448eCED5 - Balance: 99.987304188
+Account 0xf17f52151EbEF6C7334FAD080c5704D77216b732 - Balance: 99.999124364
+Account 0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef - Balance: 99.99911515
+Account 0xeec918d74c746167564401103096D45BbD494B74 - Balance: 0.024
 /* Pay auditors with the smart contract owner */
-P1:
-0x2932b7A2355D6fecc4b5c0B6BD44cC31df247a2e
-99.987254382
-P2:
-0x2191eF87E392377ec08E7c08Eb105Ef5448eCED5
-99.987304188
-A1:
-0xf17f52151EbEF6C7334FAD080c5704D77216b732
-100.004124364
-A2:
-0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef
-100.00411515
-Smart Contract:
-0xeec918d74c746167564401103096D45BbD494B74
-0.014
-Previous Balance Wei 99950138964000000000
+Account 0x2932b7A2355D6fecc4b5c0B6BD44cC31df247a2e - Balance: 99.987254382
+Account 0x2191eF87E392377ec08E7c08Eb105Ef5448eCED5 - Balance: 99.987304188
+Account 0xf17f52151EbEF6C7334FAD080c5704D77216b732 - Balance: 100.004124364
+Account 0xC5fdf4076b8F3A5357c5E395ab970B5B54098Fef - Balance: 100.00411515
+Account 0xeec918d74c746167564401103096D45BbD494B74 - Balance: 0.014
 Previous Balance Eth 99.950138964
-Current Balance Wei 99949703970000000000
 Current Balance Eth 99.94970397
-    ✓ Create two Audit Items Results and Pay auditors (2715ms)
+    ✓ Create two Audit Items Results and Pay auditors (2740ms)
 
 
   8 passing (9s)
