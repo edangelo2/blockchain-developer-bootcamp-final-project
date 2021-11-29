@@ -271,6 +271,7 @@ The following command will work for copying the files from the dapp directory:
 #### Ensure that the Smart contracts are up-and-running
 From the root directory of the repository run
 `truffle develop`
+
 Within the console you can run the command
 `migrate`
 #### Setup the config.js with the addresses of the smart contracts 
