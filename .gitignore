@@ -1,6 +1,6 @@
 node_modules
 build
 .mysecret
-dapp
 .myinfuraProject
 previousDeploy.txt
+dapp-siteOld
