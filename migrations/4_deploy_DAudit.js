@@ -5,6 +5,6 @@ const AuditEnrollments = artifacts.require("./AuditEnrollments.sol");
 module.exports = function (deployer) {
   deployer.deploy(DAudit,AuditEnrollments.address,AuditAssignments.address)
   .then(() => DAudit.deployed())
-  .then(_instance => console.log('export const DAudit = "',_instance.address));
+  .then(_instance => console.log('export const DAuditaddress = "',_instance.address+'"'));
 };
 
