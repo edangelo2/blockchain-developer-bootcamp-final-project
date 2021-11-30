@@ -302,7 +302,7 @@ The Dapp is a React/Next Web3 application. Although the Dapp is hosted in Netifl
 
 ### Running the Dapp
 #### Ensure that the Smart contracts are up-and-running
-From the root directory of the repository run
+Open another terminal window and from the root directory of the repository run
 `truffle develop`
 
 Within the console you can run the command
@@ -312,9 +312,9 @@ Within the console you can run the command
 Should it be localhost then you can obtain these addresses from console when running `truffle migrate`. Just copy and paste the addresses in the file it in the file.
 #### Start the Dapp 
 
-`cd dapp` change the directory to start the dapp
+From the directory you've installed the dapp run the following command:
 
 `npm run dev` start the Dapp locally (usually http://localhost:3000/)
 #### Access the Dapp from the browser
-Access the browser URL and ensure you are in the correct network and port in Metamask.
+Access the browser URL and ensure you are in the correct network and port in Metamask. (host: "127.0.0.1", port: 8545)
 
